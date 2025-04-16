@@ -4,6 +4,11 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import useDeviceDetect from "@/hooks/useDeviceDetect";
+import clsx from "clsx";
+
+interface AnimBackProps {
+    topLayerClassName?: string;
+}
 
 interface Shape {
     id: number,
@@ -16,7 +21,7 @@ interface Shape {
     type: "circle" | "square" | "triangle"
 }
 
-export default function AnimatedBackground() {
+export default function AnimatedBackground({ topLayerClassName = "backdrop-blur-lg" }: AnimBackProps) {
     const [shapes, setShapes] = useState<Shape[]>([])
 
     const { isMobile } = useDeviceDetect();
@@ -145,7 +150,7 @@ export default function AnimatedBackground() {
     return (
         <div className="fixed inset-0 w-full h-full overflow-hidden -z-10">
             {shapes.map((shape) => renderShape(shape))}
-            <div className="fixed w-full h-full overflow-hidden backdrop-blur-lg" />
+            <div className={clsx("fixed w-full h-full overflow-hidden", topLayerClassName)} />
         </div>
     )
 }
