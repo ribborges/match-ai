@@ -21,6 +21,7 @@ export default function Button(props: ButtonProps) {
                 text-white font-bold p-4 rounded-full
                 shadow-lg hover:shadow-black/40 dark:hover:shadow-zinc-100/20
                 hover:scale-105
+                cursor-pointer
                 transition duration-300 ease-in-out
             "
         >

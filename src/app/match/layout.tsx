@@ -15,7 +15,7 @@ export default function MatchLayout({
                 <div
                     className="
                         flex-1
-                        mt-26 md:m-18 lg:m-28 p-4
+                        mt-26 mb-4 md:m-18 lg:m-28 p-4
                         flex
                         bg-zinc-100 dark:bg-zinc-950
                         border-t border-b md:border border-zinc-200 dark:border-zinc-900 md:rounded-2xl
