@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 import AnimatedBackground from "@/components/AnimatedBackground";
-import Button from "@/components/Button";
+import AnimatedButton from "@/components/AnimatedButton";
 
 export default function Home() {
   const router = useRouter();
@@ -32,7 +32,7 @@ export default function Home() {
       <main className="flex-1 flex flex-col items-center justify-center gap-6 p-4">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-black">Encontre pessoas como você</h1>
         <h2 className="text-xl md:text-2xl lg:text-3xl font-bold">Matchmaking feito por inteligência artifical</h2>
-        <Button onClick={() => router.push("match")}>Comece agora</Button>
+        <AnimatedButton onClick={() => router.push("match")}>Comece agora</AnimatedButton>
       </main>
     </div>
   );
