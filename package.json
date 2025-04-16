@@ -20,7 +20,8 @@
     "next": "15.3.0",
     "react": "^19.0.0",
     "react-bootstrap-icons": "^1.11.5",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-google-autocomplete": "^2.7.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
