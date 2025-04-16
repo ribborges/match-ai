@@ -1,7 +1,13 @@
 {
   "name": "match-ai",
+  "description": "A web application that uses AI to match users with similar interests.",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Richard Borges",
+    "email": "contato@richardborges.dev",
+    "url": "https://richardborges.dev"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -13,6 +19,7 @@
     "framer-motion": "^12.7.3",
     "next": "15.3.0",
     "react": "^19.0.0",
+    "react-bootstrap-icons": "^1.11.5",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
