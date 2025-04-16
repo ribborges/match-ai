@@ -30,9 +30,11 @@ export default function Match() {
                         placeholder="Digite sua localização"
                     />
                 </div>
-                <Button type="submit">
-                    Buscar conexões
-                </Button>
+                <div>
+                    <Button type="submit">
+                        Buscar conexões
+                    </Button>
+                </div>
             </form>
         </div>
     );
