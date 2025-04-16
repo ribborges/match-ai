@@ -13,6 +13,8 @@ interface LocationInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>,
 }
 
 export default function LocationInput({ label, ...props }: LocationInputProps) {
+    const [focus, setFocus] = useState(false);
+    const [mouseOverDropdown, setMouseOverDropdown] = useState(false);
     const {
         placePredictions,
         getPlacePredictions,
@@ -20,7 +22,18 @@ export default function LocationInput({ label, ...props }: LocationInputProps) {
     } = useGoogle({
         apiKey: mapsApiKey
     });
-    const [isFocused, setIsFocused] = useState(false);
+
+    const onSelectPrediction = (description: string) => {
+        const syntheticEvent = {
+            target: {
+                value: description,
+                name: props.name,
+                id: props.id
+            }
+        } as React.ChangeEvent<HTMLInputElement>;
+        props.onChange?.(syntheticEvent);
+        setFocus(false);
+    }
 
     return (
         <div className="relative flex flex-col gap-1">
@@ -33,8 +46,12 @@ export default function LocationInput({ label, ...props }: LocationInputProps) {
                 {...props}
                 type="search"
                 onFocus={(evt) => {
-                    setIsFocused(true);
+                    setFocus(true);
                     props.onFocus?.(evt);
+                }}
+                onBlur={(evt) => {
+                    setFocus(false);
+                    props.onBlur?.(evt);
                 }}
                 onChange={(evt) => {
                     getPlacePredictions({ input: evt.target.value });
@@ -46,16 +63,13 @@ export default function LocationInput({ label, ...props }: LocationInputProps) {
                 )}
             />
             {
-                placePredictions.length !== 0 && isFocused && !isPlacePredictionsLoading &&
-                <InputDropdown>
+                placePredictions.length !== 0 && (focus || mouseOverDropdown) && !isPlacePredictionsLoading &&
+                <InputDropdown onMouseEnter={() => setMouseOverDropdown(true)} onMouseLeave={() => setMouseOverDropdown(false)}>
                     {
                         placePredictions.map((item) => (
                             <InputDropdownItem
                                 key={item.place_id}
-                                onClick={() => {
-                                    props.onChange?.(item.description);
-                                    setIsFocused(false);
-                                }}
+                                onClick={() => onSelectPrediction(item.description)}
                             >
                                 {item.description}
                             </InputDropdownItem>

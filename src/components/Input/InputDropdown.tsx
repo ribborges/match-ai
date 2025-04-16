@@ -1,8 +1,9 @@
-import { ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 
-function InputDropdown({ children }: { children: ReactNode }) {
+function InputDropdown({ children, ...props }: Omit<HTMLAttributes<HTMLDivElement>, 'className'>) {
     return (
         <div
+            {...props}
             className="
                 z-10 absolute top-18
                 bg-zinc-200 dark:bg-zinc-800
