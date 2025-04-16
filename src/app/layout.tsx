@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 
 import "@/styles/globals.css";
+import clsx from "clsx";
 
 const raleway = Raleway({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -22,9 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={raleway.className}
-      >
+      <body className={clsx("bg-white dark:bg-black text-zinc-900 dark:text-zinc-100", raleway.className)}>
         {children}
       </body>
     </html>
