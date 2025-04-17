@@ -20,6 +20,8 @@ Foram utilizados os seguintes pacotes no desenvolvimento do APP:
 - **[clsx](https://github.com/lukeed/clsx#readme)**: Utilitário para concatenar e construir *string* para classes de forma condicional.
 - **[framer-motion](https://motion.dev/)**: Biblioteca de animações para react. Utilizada no projeto para criar o card dos matches e um fundo animado.
 
+Não foi utilizada nenhuma bibliotéca de componentes prontos, então todos os componentes utilizados foram criados e estilizados completamente do zero.
+
 Além disso, a plicação possui um design responsivo compativel com smartphones.
 
 ## Instruções
