@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Desafio prático LEGAL.AI - match.ai: Encontre pessoas com os mesmos interesses que você
 
-## Getting Started
+Desafio técnico para vaga de Desenvolvimento Full Stack da LEGAL.AI
 
-First, run the development server:
+Deploy da aplicação: [match-ai-opal.vercel.app](https://match-ai-opal.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Pré-requisitos
+
+- Node.js
+- npm
+
+## Detalhes técnicos do projeto
+
+Foram utilizados os seguintes pacotes no desenvolvimento do APP:
+
+- **[next.js](https://nextjs.org/)**: Framework para React desenvolvido pela Vercel.
+- **[tailwindcss](https://tailwindcss.com/)**: Para estilização da aplicação e dos componentes.
+- **[react-google-autocomplete](https://github.com/ErrorPro/react-google-autocomplete#readme)**: Pacote para trabalhar com serviços de localização do google maps. Foi utilizado no projeto para criar um input dinâmico de localização.
+- **[react-bootstrap-icons](https://github.com/ismamz/react-bootstrap-icons#readme)**: Biblioteca de ícones em svg.
+- **[clsx](https://github.com/lukeed/clsx#readme)**: Utilitário para concatenar e construir *string* para classes de forma condicional.
+- **[framer-motion](https://motion.dev/)**: Biblioteca de animações para react. Utilizada no projeto para criar o card dos matches e um fundo animado.
+
+Além disso, a plicação possui um design responsivo compativel com smartphones.
+
+## Instruções
+
+1. Baixe e instale [node.js](https://nodejs.org/en).
+
+2. Crie um arquivo .env na raiz do projeto
+
+3. Adicione as seguintes variaveis:
+
+```
+NEXT_PUBLIC_MAPS_API_KEY=<Chave da API do Google Maps>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Abra seu terminal/cmd no diretório do projeto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+5. Instale as dependencias
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+> npm install
+```
 
-## Learn More
+6. Rode a aplicação em ambiente de desenvolvomento
+```bash
+> npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+A aplicação estará disponível em [http://localhost:3000](http://localhost:3000)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- *dev*: Rodar APP em ambiente de desenvolvimento
 
-## Deploy on Vercel
+```bash
+> npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- *build*: Compilar aplicação
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+> npm run build
+```
+
+- *start*: Rodar preview da aplicação compilada
+
+```bash
+> npm run preview
+```
+
+- *lint*: Executa eslint para checagem de código
+
+```bash
+> npm run lint
+```
