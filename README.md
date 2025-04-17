@@ -68,7 +68,7 @@ A aplicação estará disponível em [http://localhost:3000](http://localhost:30
 - *start*: Rodar preview da aplicação compilada
 
 ```bash
-> npm run preview
+> npm run start
 ```
 
 - *lint*: Executa eslint para checagem de código
