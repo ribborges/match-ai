@@ -1,22 +1,27 @@
 'use client';
 
 import { useState } from "react";
-import { PersonFillExclamation, Stars } from "react-bootstrap-icons";
+import { Flower2, PersonFillExclamation, Stars } from "react-bootstrap-icons";
 
 import { Input, LocationInput, TagsInput } from "@/components/Input";
 import Button from "@/components/Button";
-import { areasOfInterest } from "@/data";
+import { areasOfInterest, potentialMatches } from "@/data";
 import MatchForm from "@/types/matchForm";
 import MatchCard from "@/components/MatchCard";
 import AnimatedButton from "@/components/AnimatedButton";
+import Match from "@/types/match";
 
-export default function Match() {
-    const [itsAMatch, setItsAMatch] = useState(true);
+export default function MatchPage() {
+    const [itsAMatch, setItsAMatch] = useState(false);
+    const [interestInput, setInterestInput] = useState<string>();
+    const [matches, setMatches] = useState<Array<{ match: Match; score: number }>>([]);
     const [formData, setFormData] = useState<MatchForm>({
         name: "",
         interest: [],
-        location: "",
+        location: ""
     });
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState<string | undefined>(undefined);
 
     const onChangeName = (evt: React.ChangeEvent<HTMLInputElement>) => {
         const value = evt.target.value;
@@ -31,6 +36,57 @@ export default function Match() {
         setFormData({ ...formData, location });
     }
 
+    const simulateMatch = () => {
+        const scoredMatches = potentialMatches.map((match) => {
+            let score = 0;
+
+            score += 10; // Base score for all matches
+
+            if (match.location === formData.location) {
+                score += 30;
+            } else {
+                score += 10;
+            }
+
+            formData.interest.forEach((interest) => {
+                if (match.interest.includes(interest)) {
+                    score += 30;
+                }
+            });
+
+            score = Math.min(score, 100);
+
+            return { match, score };
+        });
+
+        return scoredMatches.sort((a, b) => b.score - a.score).slice(0, 3).reverse();
+    }
+
+    const handleMatch = () => {
+        setError(undefined);
+
+        if (!formData.interest.length || !formData.location || !formData.name) {
+            setError("Por favor, preencha todos os campos.");
+            return;
+        }
+
+        setIsLoading(true);
+
+        // Simulate a delay to mimic an API call
+        setTimeout(() => {
+            const matches = simulateMatch();
+
+            if (matches.length > 0) {
+                setMatches(matches);
+                setItsAMatch(true);
+            } else {
+                setError("Nenhum match encontrado com os critérios fornecidos.");
+            }
+
+            setIsLoading(false);
+        }, 1000);
+    }
+
     return (
         <div className="flex-1 flex flex-col md:flex-row gap-2">
             {
@@ -40,28 +96,16 @@ export default function Match() {
                             <PersonFillExclamation />
                             Seus matches
                         </h2>
-                        <div className="relative flex-1 flex flex-col items-center justify-center gap-2 md:min-w-3/4 lg:min-w-2/4">
-                            <MatchCard affinity={69} data={{
-                                id: 1,
-                                bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                                name: "Fulano de Tal",
-                                location: "São Paulo, SP",
-                                interest: ["Desenvolvedor", "Designer", "Gerente de Projetos"],
-                            }} />
-                            <MatchCard affinity={74} data={{
-                                id: 2,
-                                bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                                name: "Ciclano de Tal",
-                                location: "São Paulo, SP",
-                                interest: ["Desenvolvedor", "Designer", "Gerente de Projetos"],
-                            }} />
-                            <MatchCard affinity={92} data={{
-                                id: 3,
-                                bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                                name: "Beltrano de Tal",
-                                location: "São Paulo, SP",
-                                interest: ["Desenvolvedor", "Designer", "Gerente de Projetos"],
-                            }} />
+                        <div className="relative flex-1 flex flex-col items-center justify-center gap-2 md:min-w-3/4 lg:min-w-2/4 xl:min-w-1/4">
+                            {
+                                matches.map((match, index) => (
+                                    <MatchCard
+                                        key={index}
+                                        data={match.match}
+                                        affinity={match.score}
+                                    />
+                                ))
+                            }
                             <AnimatedButton onClick={() => setItsAMatch(false)}>
                                 Retornar ao formulário
                             </AnimatedButton>
@@ -91,6 +135,8 @@ export default function Match() {
                                 <TagsInput
                                     id="interest"
                                     name="interest"
+                                    value={interestInput}
+                                    onChange={(e) => setInterestInput(e.target.value)}
                                     onTagsChange={onChangeTags}
                                     label="Área de interesse"
                                     placeholder="Digite uma área de interesse"
@@ -105,9 +151,21 @@ export default function Match() {
                                     placeholder="Digite sua localização"
                                 />
                             </div>
-                            <div>
-                                <Button type="submit">
-                                    Buscar conexões
+                            <div className="flex flex-col items-start gap-2">
+                                {error && <span className="text-red-500">{error}</span>}
+                                <Button type="button" onClick={handleMatch} disabled={isLoading}>
+                                    {
+                                        isLoading ?
+                                            <div className="flex items-center gap-2">
+                                                <span className="animate-spin"><Flower2 /></span>
+                                                Buscando matches...
+                                            </div>
+                                            :
+                                            <div className="flex items-center gap-2">
+                                                <Stars />
+                                                Encontrar matches
+                                            </div>
+                                    }
                                 </Button>
                             </div>
                         </form>
