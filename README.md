@@ -2,12 +2,12 @@
 
 ## Sumário
 
-- [Sobre o Projeto](#sobre)
+- [Sobre o Projeto](#sobre-o-projeto)
 - [Pré-requisitos](#pré-requisitos)
-- [Detalhes Técnicos do Projeto](#detalhes-técnicos)
+- [Detalhes Técnicos do Projeto](#detalhes-técnicos-do-projeto)
 - [Instruções](#instruções)
-- [Scripts Disponíveis](#scripts)
-- [O que você faria diferente se tivesse mais tempo?](#melhorias)
+- [Scripts Disponíveis](#scripts-dispon�veis)
+- [O que você faria diferente se tivesse mais tempo?](#o-que-você-faria-diferente-se-tivesse-mais-tempo)
 
 ## Sobre o Projeto
 
