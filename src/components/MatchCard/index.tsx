@@ -87,7 +87,7 @@ export default function MatchCard(props: MatchCardProps) {
                         {props.data?.bio}
                     </p>
                     <div>
-                        <h3 className="text-lg font-bold mt-4">Interests</h3>
+                        <h3 className="text-lg font-bold mt-4">Interesses</h3>
                         <ul className="list-disc list-inside">
                             {
                                 props.data?.interest.map((interest, index) => (
