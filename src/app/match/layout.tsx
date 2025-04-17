@@ -11,7 +11,7 @@ export default function MatchLayout({
         <div className="flex flex-col min-h-screen">
             <AnimatedBackground topLayerClassName="backdrop-blur-3xl" />
             <Header />
-            <main className="flex-1 flex flex-col items-strech justify-center gap-6 md:p-4 min-h-screen">
+            <main className="flex-1 flex flex-col items-strech justify-center gap-6 md:p-4 min-h-screen overflow-hidden">
                 <div
                     className="
                         flex-1
