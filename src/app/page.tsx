@@ -15,7 +15,7 @@ export default function Home() {
       <AnimatedBackground />
       <header
         className="
-          fixed top-0 left-0 right-0
+          fixed top-0 left-0 right-0 z-50
           flex items-center justify-center gap-4
           p-8
           bg-gradient-to-b from-black/50 to-black/0 dark:from-white/10 dark:to-white/0
