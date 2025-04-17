@@ -33,6 +33,8 @@ Foram utilizados os seguintes pacotes no desenvolvimento do APP:
 
 Não foi utilizada nenhuma bibliotéca de componentes prontos, então todos os componentes utilizados foram criados e estilizados completamente do zero.
 
+A aplicação é adaptada com os modos claro e escuro, seguindo as preferências do browser do usuário.
+
 Além disso, a plicação possui um design responsivo compativel com smartphones.
 
 ## Instruções
@@ -93,3 +95,4 @@ A aplicação estará disponível em [http://localhost:3000](http://localhost:30
 - Adicionar um backend completo com integração com IA.
 - Sistema de autenticação para login de usuário.
 - Adicionar banco de dados para gravar histórico de matches e favoritos.
+- Funcionalidade de chat para conversar com os matches.
