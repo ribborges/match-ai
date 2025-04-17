@@ -1,5 +1,16 @@
 # Desafio prático LEGAL.AI - match.ai: Encontre pessoas com os mesmos interesses que você
 
+## Sumário
+
+- [Sobre o Projeto](#sobre)
+- [Pré-requisitos](#pré-requisitos)
+- [Detalhes Técnicos do Projeto](#detalhes-técnicos)
+- [Instruções](#instruções)
+- [Scripts Disponíveis](#scripts)
+- [O que você faria diferente se tivesse mais tempo?](#melhorias)
+
+## Sobre o Projeto
+
 Desafio técnico para vaga de Desenvolvimento Full Stack da LEGAL.AI
 
 Deploy da aplicação: [match-ai-opal.vercel.app](https://match-ai-opal.vercel.app/)
@@ -51,7 +62,7 @@ NEXT_PUBLIC_MAPS_API_KEY=<Chave da API do Google Maps>
 
 A aplicação estará disponível em [http://localhost:3000](http://localhost:3000)
 
-## Scripts
+## Scripts Disponíveis
 
 - *dev*: Rodar APP em ambiente de desenvolvimento
 
@@ -76,3 +87,9 @@ A aplicação estará disponível em [http://localhost:3000](http://localhost:30
 ```bash
 > npm run lint
 ```
+
+## "O que você faria diferente se tivesse mais tempo?"
+
+- Adicionar um backend completo com integração com IA.
+- Sistema de autenticação para login de usuário.
+- Adicionar banco de dados para gravar histórico de matches e favoritos.
