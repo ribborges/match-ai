@@ -6,7 +6,7 @@
 - [Pré-requisitos](#pré-requisitos)
 - [Detalhes Técnicos do Projeto](#detalhes-técnicos-do-projeto)
 - [Instruções](#instruções)
-- [Scripts Disponíveis](#scripts-dispon�veis)
+- [Scripts Disponíveis](#scripts-disponíveis)
 - [O que você faria diferente se tivesse mais tempo?](#o-que-você-faria-diferente-se-tivesse-mais-tempo)
 
 ## Sobre o Projeto
