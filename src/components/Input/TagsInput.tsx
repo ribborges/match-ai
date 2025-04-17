@@ -31,8 +31,6 @@ export default function TagsInput({ label, className, data, onTagsChange, ...pro
     const onChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
         const value = evt.target.value;
 
-        props.onChange?.(evt);
-
         // Check if theres only spaces
         if (value.trim() === "") {
             emptyOnChange();
@@ -41,12 +39,12 @@ export default function TagsInput({ label, className, data, onTagsChange, ...pro
 
         if (value.endsWith(",")) {
             const tag = value.slice(0, -1).trim();
+
             if (tag && !tags.includes(tag) && data?.includes(tag)) {
                 setTags([...tags, tag]);
-                emptyOnChange();
-            } else {
-                emptyOnChange();
             }
+
+            emptyOnChange();
         }
     }
 
@@ -118,7 +116,6 @@ export default function TagsInput({ label, className, data, onTagsChange, ...pro
                                 key={item}
                                 onClick={() => {
                                     onSelectTag(item);
-                                    emptyOnChange();
                                 }}
                             >
                                 {item}
@@ -141,7 +138,7 @@ function Tag(props: TagProps) {
     return (
         <div id={props.id} className="inline-flex items-center bg-yellow-500/50 rounded-full px-2 py-1 m-1 border border-yellow-500">
             <span className="text">{props.label}</span>
-            <button className="cursor-pointer" onClick={props.onClose}><X /></button>
+            <button type="button" className="cursor-pointer" onClick={props.onClose}><X /></button>
         </div>
     );
 }
