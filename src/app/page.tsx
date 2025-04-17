@@ -9,11 +9,18 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   const router = useRouter();
-  
+
   return (
     <div className="flex flex-col min-h-screen">
       <AnimatedBackground />
-      <header className="fixed top-0 left-0 right-0 flex items-center justify-center gap-4 p-8 bg-gradient-to-b from-black to-black/0">
+      <header
+        className="
+          fixed top-0 left-0 right-0
+          flex items-center justify-center gap-4
+          p-8
+          bg-gradient-to-b from-black/50 to-black/0 dark:from-white/10 dark:to-white/0
+        "
+      >
         <Image
           src="/logoLight.svg"
           alt="Match.AI Logo"
