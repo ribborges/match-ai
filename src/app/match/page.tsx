@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from "react";
-import { Stars } from "react-bootstrap-icons";
+import { PersonFillExclamation, Stars } from "react-bootstrap-icons";
 
 import { Input, LocationInput, TagsInput } from "@/components/Input";
 import Button from "@/components/Button";
@@ -36,6 +36,10 @@ export default function Match() {
             {
                 itsAMatch ?
                     <div className="flex-1 flex flex-col items-stretch md:items-center gap-8">
+                        <h2 className="flex text-2xl font-bold items-center gap-2">
+                            <PersonFillExclamation />
+                            Seus matches
+                        </h2>
                         <div className="relative flex-1 flex flex-col items-center justify-center gap-2 md:min-w-3/4 lg:min-w-2/4">
                             <MatchCard affinity={69} data={{
                                 id: 1,
