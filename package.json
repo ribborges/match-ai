@@ -2,6 +2,7 @@
   "name": "match-ai",
   "description": "A web application that uses AI to match users with similar interests.",
   "version": "0.1.0",
+  "license": "MPL-2.0",
   "private": true,
   "author": {
     "name": "Richard Borges",
